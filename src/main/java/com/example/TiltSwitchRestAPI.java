@@ -36,6 +36,7 @@ public class TiltSwitchRestAPI {
 			LOG.info("Received " + msg);
 			return "Received " + msg;
 		} 
+		LOG.info("No messages on queue");
 		return "No messages on queue";
 	}
 	
