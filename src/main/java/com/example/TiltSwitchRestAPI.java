@@ -43,11 +43,11 @@ public class TiltSwitchRestAPI {
 	@RequestMapping(value="/publish/{msg}", method=RequestMethod.GET)
 	public String pub(@PathVariable String msg) {
 		//for each message I will append a number 
-		String newMessage = count++ + " "+ msg;
+		String newMessage = count++ + "-"+ msg;
 		LOG.info("About to Publish " + msg);
 		rabbitTemplate.convertAndSend(DemoApplication.exchangeName, "messages", newMessage);
-		LOG.info("Published " + msg);
-		return "Published " + msg;
+		LOG.info("Published " + newMessage);
+		return "Published " + newMessage;
 	}
 
 
